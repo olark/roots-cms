@@ -3,5 +3,6 @@ define ['marionette'], (Marionette) ->
 
   App.addRegions
     content: '#content'
+    navigation: '#nav'
 
   return App

@@ -6,6 +6,9 @@ define ['app', 'marionette', 'templates', 'jqueryui'], (App, Marionette, templat
     events:
       'click': 'path'
 
+    templateHelpers: ->
+      file: (-> @model.get('id').split('/').reverse()[0]).bind(@)
+
     path: ->
       path = 'content/' + @model.get('id')
       App.request('router').navigate(path, {trigger: true})
