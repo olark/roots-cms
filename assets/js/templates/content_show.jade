@@ -1,4 +1,7 @@
-h1= id
+h3.folder= 'Back to '
+  - for folder in folders()
+    a(href='#'): span= '/' + folder
+h1.title= file
 button SAVE
 
 #main
