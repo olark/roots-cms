@@ -1,3 +1,5 @@
 .wrapper
-  h2.category= name
-  a.back(href="#") Category List
+  h2
+    a(href='#'): span.root Home
+    span= ' < '
+    a(href='#'): span.category= folder()

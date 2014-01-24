@@ -10,13 +10,6 @@ define ['app', 'marionette', 'templates', 'marked', 'pen', 'html_md', 'pen_markd
       'click span': 'link_to_folder'
 
     templateHelpers: ->
-      folders: (->
-        categories = @model.get("id").split("/")
-        categories_length = categories.length
-        categories.splice(categories_length - 1, 1)
-        categories
-      ).bind(@)
-
       content_to_html: (-> marked(@model.get('content'))).bind(@)
 
 
@@ -28,8 +21,6 @@ define ['app', 'marionette', 'templates', 'marked', 'pen', 'html_md', 'pen_markd
       @model.set('content', modified_content)
       @model.save()
 
-
     link_to_folder: (e) ->
       link = e.target.innerHTML.replace('/',"")
-      path = 'category/' + link
-      App.request('router').navigate(path, {trigger: true})
+      App.request('router').navigate(link, {trigger: true})

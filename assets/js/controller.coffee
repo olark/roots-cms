@@ -17,6 +17,7 @@ define ['app', 'marionette', 'collections/categories', 'models/content', 'views/
       (new Content(id: path)).fetch
         success: (model, res, opts) ->
           App.content.show(new ContentShowView(model: model))
+          App.navigation.show(new NavigationView(model: model))
         fail: (model, res, opts) -> console.log(model, res, opts)
 
     list_posts: (folder) ->
