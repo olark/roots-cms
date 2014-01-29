@@ -1,9 +1,8 @@
-define ['app', 'marionette', 'collections/categories', 'models/content', 'views/categories', 'views/content_edit', 'views/posts'], (App, Marionette, Categories, Content, CategoriesView, ContentEditView, PostsView) ->
+define ['app', 'marionette', 'collections/categories', 'models/category', 'models/content', 'views/categories', 'views/content_edit', 'views/posts'], (App, Marionette, Categories, Category, Content, CategoriesView, ContentEditView, PostsView) ->
   class Controller extends Marionette.Controller
     list_categories: ->
-      (new Categories).fetch
-        success: (collection, res, opts) ->
-          App.content.show(new CategoriesView(collection: collection))
+      (new Category).fetch
+        success: (m, res, opts) -> console?.log?(m)
         fail: (collection, res, opts) -> console?.log?(collection, res, opts)
 
     edit_content: (path) ->

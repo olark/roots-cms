@@ -1,5 +1,5 @@
 define ['jquery', 'models/content', 'backbone_relational'], ($, Content) ->
-  class ContentCollection extends Backbone.RelationalModel
+  class ContentCollection extends Backbone.Collection
     model: Content
     url: '/api/content'
 

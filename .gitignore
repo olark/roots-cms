@@ -3,6 +3,7 @@ node_modules/
 public/*
 !public/js/
 public/js/*
+!public/api_spec.json
 !public/js/vendor/
 config.json
 assets/css/custom.styl

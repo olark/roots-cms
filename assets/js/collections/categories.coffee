@@ -1,6 +1,5 @@
-define ['jquery', 'models/category'], ($, Category) ->
+define ['jquery', 'backbone'], ($, Backbone) ->
   class Categories extends Backbone.Collection
-    model: Category
     url: '/api/categories'
 
     comparator: (m) -> m.get('name')
