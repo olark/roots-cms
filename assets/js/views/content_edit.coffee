@@ -22,7 +22,8 @@ define ['marionette', 'templates', 'underscore', 'marked', 'pen', 'html_md', 'dr
         editor: @ui.content[0]
         list: [
           'blockquote', 'h2', 'h3', 'p', 'insertorderedlist', 'insertunorderedlist',
-          'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink', 'inserthtml'
+          'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink', 'inserthtml',
+          'float'
         ]
         debug: true
         inserthtml: "<span class='upload-area' contenteditable='false'></span>"

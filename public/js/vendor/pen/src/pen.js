@@ -125,6 +125,7 @@
 
   Pen.prototype.toolbar = function() {
 
+    console.log(this.config.list);
     var that = this, icons = '';
 
     for(var i = 0, list = this.config.list; i < list.length; i++) {
@@ -257,7 +258,7 @@
     // allow command list
     reg = {
       block: /^(?:p|h[1-6]|blockquote|pre)$/,
-      inline: /^(?:bold|italic|underline|insertorderedlist|insertunorderedlist|indent|outdent|inserthorizontalrule)$/,
+      inline: /^(?:bold|italic|underline|insertorderedlist|insertunorderedlist|indent|outdent|inserthorizontalrule|float)$/,
       source: /^(?:insertimage|createlink|unlink|inserthtml)$/
     };
 
@@ -266,6 +267,14 @@
 
       if (cmd === 'inserthtml') {
         val = that.config.inserthtml
+      }
+
+      if (cmd === 'float') {
+        var node = document.getSelection().getRangeAt(0).cloneContents().cloneNode(true);
+        var div = document.createElement('div');
+        div.appendChild(node);
+        var html = div.innerHTML
+        return document.execCommand('inserthtml', false, "<span class='float'>" + html + "</span>");
       }
 
       if(document.execCommand(cmd, false, val) && that.config.debug) {
