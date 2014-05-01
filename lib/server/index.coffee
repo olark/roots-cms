@@ -25,6 +25,7 @@ class Server
   ### private ###
 
   compile_client = ->
+    client.on('error', (e) -> console.error(e))
     client.compile()
 
   configure_server = ->
