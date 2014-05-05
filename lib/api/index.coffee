@@ -4,6 +4,7 @@ fs = require('fs')
 Category = require('../category')
 Content = require('../content')
 Uploader = require('../uploader')
+Roots = require ('roots')
 
 module.exports = (@cms, server) ->
   config = @cms.config
@@ -32,3 +33,10 @@ module.exports = (@cms, server) ->
   server.post '/api/upload_image', (req, res) ->
     (new Uploader(@cms)).upload(req.files.file.path)
       .then (url) -> res.json(url: url)
+
+  # server.get /preview\/(.*)/, (req, res) ->
+    # path = req.params[0]
+    # console.log(project.config.output)
+
+  project = new Roots(@cms.root)
+  server.use('/preview', express.static(path.join(project.root, project.config.output)))

@@ -48,7 +48,7 @@ class Server
     api(@cms, @_server)
 
     # roots-cms marionette SPA
-    @_server.get "*", (req, res) ->
-      res.sendfile(path.join(client_path, 'index.html'))
+    # @_server.get "*", (req, res) ->
+      # res.sendfile(path.join(client_path, 'index.html'))
 
 module.exports = Server
