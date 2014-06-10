@@ -1,7 +1,8 @@
-fs = require('fs')
-path = require('path')
-js_yaml = require('js-yaml')
-Git = require('../utils/git')
+fs      = require 'fs'
+path    = require 'path'
+js_yaml = require 'js-yaml'
+S       = require 'string'
+Git     = require '../utils/git'
 
 module.exports = class Content
   constructor: (@cms, file_path) ->
@@ -61,4 +62,6 @@ module.exports = class Content
           files.push(path.join('assets', single_match[2]))
     return files
 
-  to_json: -> return @data
+  to_json: ->
+    @set('content', S(@get('content')).escapeHTML().s)
+    return @data
